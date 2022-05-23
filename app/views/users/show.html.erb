@@ -1,6 +1,23 @@
+<header>
+ <li>
+  <%= link_to"Home",root_path %>
+ </li>
+
+ <li>
+  <%= link_to"Users",users_path %>
+ </li>
+
+ <li>
+   <%= link_to"Books",books_path %>
+ </li>
+
+</header>
+
+
+
 <h1>User info</h1>
 
-<p><%= image_tag @user.get_image(100,100)%></p>
+<p><%= image_tag @user.get_image(100,100) %></p>
 
 <p>name</p>
  <%= @user.name %>
@@ -18,7 +35,6 @@
 
 <p><%= f.text_area :body %></p>
 
-<%= f.submit '投稿' %>
-
+<%= f.submit 'Create Book' %>
 
 <% end %>

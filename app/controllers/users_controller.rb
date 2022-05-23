@@ -2,13 +2,19 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @book = Book.new
   end
 
   def create
     @user = User.new
-    @user.user_id = current_user.id
+    @user.user_ = current_user.id
     @user.save
-    redilect_to user_path
+    redirect_to user_path
+  end
+
+  def index
+    @users = User.all
+    @books = Book.all
 
   end
 
@@ -27,9 +33,11 @@ class UsersController < ApplicationController
     user.update(user_params)
     redirect_to user_path
   end
+
     private
 
     def user_params
       params.require(:user).permit(:name,:introduction)
     end
+
 end
