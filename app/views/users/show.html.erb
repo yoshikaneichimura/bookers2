@@ -1,4 +1,7 @@
+
+<h1><%= link_to'Bookers',root_path %></h1>
 <header>
+
  <li>
   <%= link_to"Home",root_path %>
  </li>
@@ -13,8 +16,6 @@
 
 </header>
 
-
-
 <h1>User info</h1>
 
 <p><%= image_tag @user.get_image(100,100) %></p>
@@ -25,32 +26,37 @@
 <p>introduction</p>
  <%= @user.introduction %>
 
-<%= link_to"edit",edit_user_path %>
+<p><%= link_to"edit",edit_user_path %><p>
 
 <h1>New Book</h1>
 
 <%= form_with model: @book do |f| %>
 
+<p>Title</p>
+
 <p><%= f.text_field :title %></p>
+
+<p>Option</p>
 
 <p><%= f.text_area :body %></p>
 
-<%= f.submit 'Create Book' %>
+<p><%= f.submit 'Create Book' %></p>
 
 <% end %>
 
 <h1>Books</h1>
 
-
-
 <%= @books.each do |book| %>
 
 <p>Title</p>
 
-<%= book.title %>
+<p><%= book.title %></p>
 
 <p>Option</p>
 
-<%= book.body %>
+<p><%= book.body %></p>
+
+<p><%= link_to'Show',book_path(book.id) %></p>
 
 <%end%>
+
