@@ -38,3 +38,19 @@
 <%= f.submit 'Create Book' %>
 
 <% end %>
+
+<h1>Books</h1>
+
+
+
+<%= @books.each do |book| %>
+
+<p>Title</p>
+
+<%= book.title %>
+
+<p>Option</p>
+
+<%= book.body %>
+
+<%end%>
