@@ -1,20 +1,20 @@
 <h1>User Info</h1>
 
-<%= form_with model:@user do |f| %>
+<%= form_with model: @user do |f| %>
 
 <p for="inputName">Name</p>
 
- <%= f.text_field:name,autofocus: true,id:"inputName",placeholder:"名前" %>
+<p><%= f.text_field:name,autofocus: true,id:"inputName",placeholder:"名前" %></p>
 
 <p for="inputImage">Image</p>
 
-<%= f.file_field:image,placeholder:"プロフィール画像",accept: "image/*"%>
+<p><%= f.file_field:image,placeholder:"プロフィール画像",accept: "image/*"%></p>
 
 <p for="inputIntroduction">Introduction</p>
 
-<%= f.text_area :introduction,autofocus: true,id:"inputIntroduction",placeholder:"紹介" %>
+<p><%= f.text_area :introduction,autofocus: true,id:"inputIntroduction",placeholder:"紹介" %></p>
 
-<%= f.submit'Update User' %>
+<p><%= f.submit'Update User' %></p>
 
 <% end %>
 

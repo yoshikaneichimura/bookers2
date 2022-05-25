@@ -1,5 +1,6 @@
 <h1>Book detail</h1>
 
+
 <p><%= image_tag @book.user.get_image(100,100) %></p>
 
 <%= link_to "#{@book.user.name}",user_path(@book.user.id) %>
@@ -12,12 +13,22 @@
 
 <%= @book.body %>
 
-<%= link_to'Edit',edit_book_path %>
+<p>
 
-<% if @book.user == current_user %>
+<%= link_to'Edit',edit_book_path %> |
 
- <%= link_to"Destroy",book_path(@book),method: :delete %>
+ <% if @book.user == current_user %>
 
+<%= link_to"Destroy",book_path(@book),method: :delete %>
+
+</p>
+
+<% end %>
+
+<% if flash[:notice] %>
+ <p id="notice">
+  <%= flash[:notice] %>
+ </p>
 <% end %>
 
 

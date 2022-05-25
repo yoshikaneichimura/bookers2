@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resorce)
     user_path(resorce)
+    
   end
 
   def afetr_sign_put_path_for
