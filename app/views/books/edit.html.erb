@@ -15,3 +15,12 @@
 <%end%>
 
 <p><%= link_to'Show',book_path %>|<%= link_to'Back',books_path %></p>
+
+<% if @book.errors.any? %>
+ <%= @book.errors.count %>Error!!
+ <ul>
+  <% @book.errors.full_messages.each do |message| %>
+   <li><%= message %></li>
+  <% end %>
+ </ul>
+<%end%>

@@ -11,13 +11,14 @@ class BooksController < ApplicationController
      flash[:notice] = "successfully!!"
      redirect_to book_path(@book.id)
     else
-     @books = Book.all
+     @book = Book.all
      render :index
     end
   end
 
   def index
     @books = Book.all
+    @book = Book.find(params[:id])
   end
 
   def show

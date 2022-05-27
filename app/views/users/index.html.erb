@@ -2,15 +2,39 @@
 
 <%= @users.each do |user| %>
 
-<p><%= image_tag user.get_image(100,100) %></p>
+<table>
 
-<p>name</p>
+  <thead>
 
-<p><%= user.name %></p>
+    <tr>
 
-<p>introduction</p>
+      <th>image</th>
 
-<p><%= user.introduction %></p>
+      <th>name</th>
+
+      <th></th>
+
+      <th colspan="3"></th>
+
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr>
+
+     <tb><%= image_tag user.get_image(100,100) %></tb>
+
+     <tb><%= user.name %></tb>
+
+     <tb><%= link_to"Show",user_path(user.id)%></tb>
+
+    </tr>
+
+  </tbody>
+
+</table>
 
 <% end %>
 

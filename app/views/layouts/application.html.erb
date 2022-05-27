@@ -13,11 +13,28 @@
   <body>
     <header>
       <% if user_signed_in? %>
+
+      <h1><%= link_to'Bookers',root_path %></h1>
+
+      <li>
+       <%= link_to"Home",root_path %>
+      </li>
+
+      <li>
+       <%= link_to"Users",users_path %>
+      </li>
+
+      <li>
+       <%= link_to"Books",books_path %>
+      </li>
+
       <li>
         <%= link_to"Log out",destroy_user_session_path,method: :delete %>
       </li>
 
        <% else %>
+
+       <h1><%= link_to'Bookers',root_path %></h1>
 
        <li>
          <%= link_to"Home",root_path %>
@@ -34,8 +51,15 @@
        <li>
         <%= link_to"Log in",new_user_session_path %>
       </li>
+
       <% end %>
+
+      <%= flash.each do |key, value| %>
+       <%= content_tag(:div,value,class: "#{key}") %>
+      <%end%>
+
     </header>
+
     <%= yield %>
   </body>
 </html>

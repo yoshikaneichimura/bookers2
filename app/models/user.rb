@@ -16,4 +16,8 @@ class User < ApplicationRecord
            image.variant(resize_to_limit:[100,100]).processed
          end
 
+         validates :name, presence: true
+         validates :introduction, presence:true
+         validates :image, presence: true
+
 end
