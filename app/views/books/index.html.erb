@@ -24,9 +24,9 @@
 
   <tr>
 
-   <tb>プロフィール画像</tb>
+   <tb><%= image_tag book.user.get_image(100,100) %></tb>
 
-   <tb><%= link_to "#{book.title}",book_path(@book.id) %></tb>
+   <tb><%= link_to "#{book.title}",book_path(book.id) %></tb>
 
    <tb><%= book.body %></tb>
 
