@@ -1,5 +1,6 @@
-<h1>Book detail</h1>
+<%= render 'users/new',users:@users,book:@book_new %>
 
+<h1>Book detail</h1>
 
 <p><%= image_tag @book.user.get_image(100,100) %></p>
 
@@ -15,7 +16,13 @@
 
 <p>
 
-<%= link_to'Edit',edit_book_path %> |
+ <% if @book.user == current_user %>
+
+<%= link_to'Edit',edit_book_path %>
+
+<% end %>
+
+|
 
  <% if @book.user == current_user %>
 
