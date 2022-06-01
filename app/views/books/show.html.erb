@@ -25,14 +25,14 @@
 
                  <% if @book.user == current_user %>
 
-                 <td><%= link_to'Edit',edit_book_path %></td>
+                 <td><%= link_to'Edit',edit_book_path,class:"btn btn-success" %></td>
 
                  <% end %>
 
 
                  <% if @book.user == current_user %>
 
-                 <td><%= link_to"Destroy",book_path(@book),method: :delete %></td>
+                 <td><%= link_to"Destroy",book_path(@book),method: :delete,"data-confirm"=>"本当に削除しますか？",class:"btn btn-danger"%></td>
 
                  <% end %>
 
