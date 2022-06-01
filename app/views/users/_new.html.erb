@@ -32,6 +32,16 @@
 
 <h2 class="mt-3">New Book</h2>
 
+<% if book.errors.any? %>
+ <%= book.errors.count %> ERROR!!
+  <ul>
+   <% book.errors.full_messages.each do |message|%>
+   <il><%= message %></li>
+    <%end%>
+  </ul>
+ <%end%>
+
+
 <%= form_with model: book do |f| %>
 
 <div class="form-group">
@@ -52,18 +62,13 @@
 
 <div class="form-group">
 
- <p><%= f.submit 'Create Book' %></p class="btn btn-success">
+ <p><%= f.submit class:"btn btn-success" do %></p>
+ Create Book
+ <% end %>
 
 </div>
 
 <% end %>
 
- <% if flash[:notice] %>
 
-  <p id="notice">
 
-   <%= flash[:notice] %>
-
-  </p>
-
- <% end %>

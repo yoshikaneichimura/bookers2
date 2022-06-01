@@ -29,37 +29,70 @@
           <ul class="navbar-nav ml-auto">
 
             <li>
-              <%= link_to"Home",new_user_session_path,class:"nav-link text-light" %><i class="fas fa-home"></i>
+              <%= link_to new_user_session_path,class:"nav-link text-light" do %>
+              <i class="fas fa-home"></i>
+              Home
+              <% end %>
             </li>
 
             <li>
-              <%= link_to"Users",users_path,class:"nav-link text-light" %><i class="fas fa-users"></i>
+              <%= link_to users_path,class:"nav-link text-light" do %>
+              <i class="fas fa-users"></i>
+              Users
+              <% end %>
             </li>
 
             <li>
-              <%= link_to"Books",books_path,class:"nav-link text-light" %><i class="fas fa-book-open"></i>
+              <%= link_to books_path,class:"nav-link text-light" do %>
+              <i class="fas fa-book-open"></i>
+              Books
+              <% end %>
             </li>
 
             <li>
-              <%= link_to"Log out",destroy_user_session_path,method: :delete ,class:"nav-link text-light"%><i class="fas fa-sign-out-alt"></i>
+              <%= link_to destroy_user_session_path,method: :delete ,class:"nav-link text-light" do %>
+              <i class="fas fa-sign-out-alt"></i>
+              Log out
+              <% end %>
             </li>
 
             <% else %>
 
+             <span><%= link_to"Bookers",root_path,class:"navbar-brand" %></span>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"aria-controls="navbarNavDropdown"aria-expanded="false"aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+        </button>
+
+         <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+          <ul class="navbar-nav ml-auto">
+
             <li>
-             <i class="fas fa-home"></i><%= link_to"Home",root_path,class:"nav-link text-light" %>
+             <%= link_to root_path,class:"nav-link text-light" do %>
+             <i class="fas fa-home"></i>
+             Home
+             <% end %>
             </li>
 
             <li>
-             <i class="fas fa-link"></i><%= link_to"About",about_path,class:"nav-link text-light" %>
+             <%= link_to about_path,class:"nav-link text-light" do %>
+             <i class="fas fa-link"></i>
+             About
+             <% end %>
             </li>
 
             <li>
-             <i class="fas fa-user-plus"></i><%= link_to"Sign up",new_user_registration_path,class:"nav-link text-light" %>
+             <%= link_to new_user_registration_path,class:"nav-link text-light" do %>
+              <i class="fas fa-user-plus"></i>
+              Sign up
+              <% end %>
             </li>
 
             <li>
-             <i class="fas fa-sign-in-alt"></i><%= link_to"Log in",new_user_session_path,class:"nav-link text-light" %>
+            <%= link_to new_user_session_path,class:"nav-link text-light" do %>
+             <i class="fas fa-sign-in-alt"></i>
+             Log in
+             <% end %>
             </li>
 
              <% end %>
@@ -74,10 +107,13 @@
 
     </header>
 
-    <%= flash.each do |key, value| %>
-      <%= content_tag(:div,value,class: "#{key}") %>
+    <% flash.each do |key, value| %>
+
+      <%=content_tag(:div,value,class: "#{key}") %>
+
     <%end%>
 
    <%= yield %>
+
   </body>
 </html>

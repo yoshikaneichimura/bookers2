@@ -1,13 +1,23 @@
-<h1>User Info</h1>
+<body>
 
-<% if @user.errors.any? %>
- <%= @user.errors.count %>Error!!
- <ul>
-  <% @user.errors.full_messages.each do |message| %>
-   <li><%= message %></li>
-  <% end %>
- </ul>
-<%end%>
+ <main>
+
+  <div class="container">
+
+   <div class="row">
+
+    <div class="col-sm-12 col-md-8 col-lg-5 px-sm-0 mx-auto">
+
+  <h1>User Info</h1>
+
+  <% if @user.errors.any? %>
+    <%= @user.errors.count %>Error!!
+   <ul>
+    <% @user.errors.full_messages.each do |message| %>
+     <li><%= message %></li>
+   <% end %>
+  </ul>
+ <%end%>
 
 <%= form_with model: @user do |f| %>
 
@@ -27,12 +37,28 @@
 
 <% end %>
 
-<p>CopyRight Infratop.inc</p>
+         </div>
 
-<p><%= image_tag @user.get_profile_image(100,100) %></p>
+       </div>
 
-<p>name</p>
- <%= @user.name %>
+     </div>
 
-<p>introduction</p>
- <%= @user.introduction %>
+   </main>
+
+   <footer>
+
+  <div class="cotainer mt-5">
+
+    <div class="row">
+
+      <div class="mx-auto">
+
+      <p>CopyRight Infratop.inc</p>
+
+    </div>
+
+  </div>
+
+</footer>
+
+ </body>

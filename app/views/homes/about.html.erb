@@ -1,13 +1,20 @@
-<h1>welcome to Bookers!</h1>
+<body>
+  <div class="container">
+    <div class="row">
+      <h1 class="px-3 mx-auto">welcome to <i class="fas fa-book"></i><strong> Bookers</strong>!</h1>
+    </div>
+  </div>
 
-<p>CopyRigth Infratop.inc</p>
+  <footer>
 
-<h1>Books</h1>
+    <div class="container mt-5">
+      <div class="row">
+        <div class="mx-auto">
+          <p>CopyRight Infratop.inc</p>
+        </div>
+      </div>
+    </div>
 
-<% @books.each do |book| %>
+  </footer>
 
-<p><%= book.title %></p>
-
-<p><%= book.body %></p>
-
-<% end %>
+</body>

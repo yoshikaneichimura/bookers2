@@ -1,26 +1,46 @@
-<h1>Edting Book</h1>
+<body>
 
-<%= form_with model: @book do |f| %>
+  <main>
 
- <p>Title</p>
+   <div class="container">
 
- <p><%= f.text_field :title %></p>
+     <div class="row">
 
- <p>Option</p>
+       <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 
- <p><%= f.text_area :body %></p>
+       <h1>Edting Book</h1>
 
- <p><%= f.submit'Update Book'%></p>
+       <%= form_with model: @book do |f| %>
 
-<%end%>
+         <p>Title</p>
 
-<p><%= link_to'Show',book_path %>|<%= link_to'Back',books_path %></p>
+         <p><%= f.text_field :title %></p>
 
-<% if @book.errors.any? %>
- <%= @book.errors.count %>Error!!
- <ul>
-  <% @book.errors.full_messages.each do |message| %>
-   <li><%= message %></li>
-  <% end %>
- </ul>
-<%end%>
+         <p>Option</p>
+
+         <p><%= f.text_area :body %></p>
+
+         <p><%= f.submit'Update Book'%></p>
+
+        <%end%>
+
+        <p><%= link_to'Show ',book_path %>|<%= link_to' Back',books_path %></p>
+
+         <% if @book.errors.any? %>
+          <%= @book.errors.count %>Error!!
+           <ul>
+            <% @book.errors.full_messages.each do |message| %>
+           <li><%= message %></li>
+           <% end %>
+          </ul>
+            <%end%>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+</body>
