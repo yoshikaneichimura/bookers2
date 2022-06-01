@@ -1,8 +1,6 @@
-<div class="col-md-3">
-
   <h2>User info</h2>
 
-  <p><%= image_tag user.get_image(100,100) %></p>
+  <p><%= image_tag user.get_profile_image(100,100) %></p>
 
   <table class="table">
 
@@ -25,7 +23,9 @@
   </table>
 
 <div class="row">
- <%= link_to"edit",edit_user_path(user.id),class:"btn btn-outline-secondary" %>
+ <%= link_to edit_user_path(user.id),class:"btn btn-outline-secondary btn-block" do %>
+ <i class="fas fa-user-cog"></i>
+ <%end%>
 </div>
 
 
@@ -36,7 +36,7 @@
 
 <div class="form-group">
 
-  <label for="book_title">Title</labele>
+  <p for="book_title">Title</p>
 
   <%= f.text_field :title %>
 
@@ -52,12 +52,11 @@
 
 <div class="form-group">
 
-  <%= f.submit 'Create Book' %>
+ <p><%= f.submit 'Create Book' %></p class="btn btn-success">
 
 </div>
 
 <% end %>
-</div>
 
  <% if flash[:notice] %>
 

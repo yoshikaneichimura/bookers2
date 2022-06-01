@@ -1,42 +1,72 @@
-<%= render 'users/new',user:@user,book:@book %>
+<body>
 
-<h1>Book detail</h1>
+ <main>
 
-<p><%= image_tag @book.user.get_image(100,100) %></p>
+  <p id="notice"></p>
 
-<%= link_to "#{@book.user.name}",user_path(@book.user.id) %>
+  <div class="container px-5 px-sm-0">
 
-<p>Title</p>
+      <div class="row">
 
-<%= link_to "#{@book.title}",book_path(@book.id) %>
+        <div class="col-md-3">
+         <%= render 'users/new',user:@user,book:@book %>
+        </div>
 
-<p>Option</p>
+        <div class="col-md-8 offset-md-1">
 
-<%= @book.body %>
+         <h2>Book detail</h2>
 
-<p>
+           <table class="table">
 
- <% if @book.user == current_user %>
+             <tbody>
+               <tr>
+                 <td><%= image_tag @book.user.get_profile_image(100,100) %><%= link_to "#{@book.user.name}",user_path(@book.user.id)%></td>
+                 <td><%= link_to "#{@book.title}",book_path(@book.id) %><td>
+                 <tb><%= @book.body %></tb>
 
-<%= link_to'Edit',edit_book_path %>
+                 <% if @book.user == current_user %>
+                 <td><%= link_to'Edit',edit_book_path %></td>
+                 <% end %>
 
-<% end %>
+                 <% if @book.user == current_user %>
 
-|
+                 <td><%= link_to"Destroy",book_path(@book),method: :delete %></td>
 
- <% if @book.user == current_user %>
+               </tr>
+              </tbody>
 
-<%= link_to"Destroy",book_path(@book),method: :delete %>
+            </table>
 
-</p>
+                 <% end %>
 
-<% end %>
+                 <% if flash[:notice] %>
+                 <p id="notice">
+                 <%= flash[:notice] %>
+                 </p>
 
-<% if flash[:notice] %>
- <p id="notice">
-  <%= flash[:notice] %>
- </p>
-<% end %>
+           <% end %>
+
+          </div>
+
+        </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+
+    <div class="container mt-5">
+      <div class="row">
+        <div class="mx-auto">
+          <p>CopyRight Infratop.inc</p>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+</body>
 
 
 
