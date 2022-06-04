@@ -11,26 +11,34 @@
 
    <tr>
     <th>name</th>
-    <th><%= user.name %></th>
+    <th><%= user. name %></th>
    </tr>
 
    <tr>
     <th>introduction</th>
-    <th><%= user.introduction %></th>
+    <th><%= user. introduction %></th>
    </tr>
 
   </tbody>
   </table>
-
+<% if user == current_user %>
 <div class="row">
- <%= link_to edit_user_path(user.id),class:"btn btn-outline-secondary btn-block" do %>
- <i class="fas fa-user-cog"></i>
- <%end%>
+  <%= link_to edit_user_path(user.id),class:"btn btn-outline-secondary btn-block" do %>
+   <i class="fas fa-user-cog"></i>
+  <% end %>
 </div>
 
+<% else %>
 
+<div class="row">
+  <%= link_to user_path(current_user.id),class:"btn btn-outline-secondary btn-block" do %>
+   <i class="fas fa-user-cog"></i>
+  <% end %>
+</div>
 
-<h2 class="mt-3">New Book</h2>
+<% end %>
+
+<h2 class="mt-3">New book</h2>
 
 <% if book.errors.any? %>
  <%= book.errors.count %> ERROR!!
@@ -42,7 +50,7 @@
  <%end%>
 
 
-<%= form_with model: book do |f| %>
+<%= form_with model: Book.new do |f| %>
 
 <div class="form-group">
 
@@ -69,6 +77,3 @@
 </div>
 
 <% end %>
-
-
-

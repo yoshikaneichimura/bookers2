@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   end
 
-  def afetr_sign_put_path_for
+  def after_sign_put_path_for
     about_path
   end
 

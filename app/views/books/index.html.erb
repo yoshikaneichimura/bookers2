@@ -7,10 +7,10 @@
       <div class="row">
 
         <div class="col-md-3">
-          <%= render 'users/new',user:@user,book:@book %>
+          <%= render 'users/new',user:@user,book:@book,books:@books %>
         </div>
 
-        <div class="col-md-8 offset md-1">
+        <div class="col-md-8 offset-md-1">
 
 
          <h2>Books</h2>
@@ -44,7 +44,9 @@
 
                <tr>
 
-                 <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+                 <td><%= link_to user_path(book.user.id) do %>
+                  <%= image_tag book.user.get_profile_image(100,100) %>
+                 <% end %></td>
 
                  <td><%= link_to "#{book.title}",book_path(book.id) %></td>
 
